@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALLTogether Protocol Experience Questionnaire</title>
+    <style>
+        :root {
+            --primary-color: #1F4460; /* RAL 5020 */
+            --text-color: #333;
+            --background-color: #f5f5f5;
+            --border-color: #ddd;
+            --highlight-color: rgba(31, 68, 96, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
+        }
+
+        .intro {
+            background: var(--highlight-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .question {
+            margin-bottom: 35px;
+            padding: 20px;
+            background: var(--highlight-color);
+            border-radius: 8px;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+            font-size: 1.1em;
+        }
+
+        .question-description {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-top: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(31, 68, 96, 0.2);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .radio-group {
+            margin: 15px 0;
+        }
+
+        .radio-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .radio-container:hover {
+            background: var(--highlight-color);
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .checkbox-group {
+            margin-top: 20px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 15px;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .contact-fields {
+            margin-top: 15px;
+            display: none;
+            padding: 20px;
+            background: var(--highlight-color);
+            border-radius: 6px;
+        }
+
+        .contact-fields.visible {
+            display: block;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 30px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #2a5980;
+        }
+
+        .divider {
+            height: 2px;
+            background: var(--border-color);
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .divider::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 4px;
+            background: var(--primary-color);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+
+            .question {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ALLTogether Protocol Experience Questionnaire</h1>
+
+        <div class="intro">
+            <p>Thank you for taking the time to complete this questionnaire. We are a group of parent and patient representatives collecting insights to improve the care and communication surrounding treatment with the <strong>ALLTogether protocol</strong> for children and young people with acute lymphoblastic leukemia (ALL).</p>
+            <p>You can participate if treatment was <strong>completed within the past three years</strong>.</p>
+            <p>There are no right or wrong answers – we are interested in your personal experiences. All answers are confidential and anonymised unless you choose to be contacted for a follow-up.</p>
+        </div>
+
+        <form id="questionnaireForm">
+            <div class="section">
+                <h2 class="section-title">Before we begin</h2>
+                
+                <div class="question">
+                    <label class="question-text">I am:</label>
+                    <div class="radio-group">
+                        <label class="radio-container">
+                            <input type="radio" name="respondent_type" value="patient" required>
+                            A former patient
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="respondent_type" value="parent" required>
+                            A parent or guardian of a former patient
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label class="question-text">Country:</label>
+                    <input type="text" name="country" required>
+                </div>
+
+                <div class="question">
+                    <label class="question-text">Hospital or clinic where treatment took place:</label>
+                    <input type="text" name="hospital" required>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <h2 class="section-title">Part 1: Starting Treatment and the Intensive Phase</h2>
+                
+                <div class="question">
+                    <label class="question-text">1a. What kind of material did you receive when your child/you started treatment and consent was required?</label>
+                    <div class="question-description">Examples: written information, leaflets, videos, web links, conversations with staff.</div>
+                    <textarea name="q1a" required></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-text">1b. How did you experience the material – and did you feel well-prepared to make a decision?</label>
+                    <div class="question-description">Was the information clear? Were your questions taken seriously? Did you feel supported?</div>
+                    <textarea name="q1b" required></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-text">2. How did you experience your first meetings with the healthcare staff?</label>
+                    <div class="question-description">Were there moments where you felt heard and supported – or the opposite?</div>
+                    <textarea name="q2" required></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-text">3. What worked well – and what could have made the intensive phase easier for you and your child/yourself?</label>
+                    <div class="question-description">For example, in terms of coordination, information, emotional support, or practical help.</div>
+                    <textarea name="q3" required></textarea>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <h2 class="section-title">Part 2: Maintenance Treatment</h2>
+                
+                <div class="question">
+                    <label class="question-text">4. How did you experience the transition from intensive treatment to the maintenance phase?</label>
+                    <div class="question-description">Did you feel informed and supported during the change? Did contact with staff change?</div>
+                    <textarea name="q4" required></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-text">5. What worked well during the maintenance phase – both in daily life and in your contact with the hospital?</label>
+                    <div class="question-description">For example: flexible scheduling, continuity, accessible support.</div>
+                    <textarea name="q5" required></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-text">6. Was there anything you or your child needed more help with during maintenance?</label>
+                    <div class="question-description">For example: school, medication, fatigue, emotions, routines.</div>
+                    <textarea name="q6" required></textarea>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <h2 class="section-title">Part 3: Life After Treatment and Late Effects</h2>
+                
+                <div class="question">
+                    <label class="question-text">7. How have you and/or your child experienced life after treatment ended?</label>
+                    <div class="question-description">Emotionally, physically, socially – shortly after and/or in the longer term.</div>
+                    <textarea name="q7" required></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-text">8. Have you experienced any late effects – and how has the healthcare system responded?</label>
+                    <div class="question-description">Was there support, follow-up, or access to information?</div>
+                    <textarea name="q8" required></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-text">9. What has been the most challenging aspect of moving from being "in treatment" to "after treatment"?</label>
+                    <div class="question-description">For example: loss of contact with hospital, uncertainty, navigating everyday life.</div>
+                    <textarea name="q9" required></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-text">10. If you could give one piece of advice to the hospital or healthcare system, what would it be?</label>
+                    <div class="question-description">Please be specific – what would have made a difference for you?</div>
+                    <textarea name="q10" required></textarea>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <h2 class="section-title">Final Question</h2>
+                <div class="checkbox-group">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="contactConsent" name="contactConsent">
+                        <label for="contactConsent">Yes, I agree to be contacted for a follow-up conversation</label>
+                    </div>
+                    <div class="contact-fields" id="contactFields">
+                        <div class="question">
+                            <label class="question-text">Name:</label>
+                            <input type="text" name="contactName">
+                        </div>
+                        <div class="question">
+                            <label class="question-text">Email or phone:</label>
+                            <input type="text" name="contactInfo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Questionnaire</button>
+        </form>
+    </div>
+
+    <script>
+        // Toggle contact fields visibility
+        document.getElementById('contactConsent').addEventListener('change', function() {
+            const contactFields = document.getElementById('contactFields');
+            contactFields.classList.toggle('visible', this.checked);
+            
+            // Toggle required attribute on contact fields
+            const contactInputs = contactFields.querySelectorAll('input');
+            contactInputs.forEach(input => {
+                input.required = this.checked;
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('questionnaireForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for completing the questionnaire!');
+        });
+    </script>
+</body>
+</html>
